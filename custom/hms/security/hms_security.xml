@@ -1,0 +1,19 @@
+<odoo>
+    <data>
+        <record id="hms_groups_category" model="ir.module.category">
+            <field name="name">HMS</field>
+        </record>
+
+        <record id="hms_user_group" model="res.groups">
+            <field name="name">User</field>
+            <field name="category_id" ref="hms_groups_category"/>
+            <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+        </record>
+
+        <record id="hms_manager_group" model="res.groups">
+            <field name="name">Manager</field>
+            <field name="category_id" ref="hms_groups_category"/>
+            <field name="implied_ids" eval="[(4, ref('hms_user_group'))]"/>
+        </record>
+    </data>
+</odoo>
